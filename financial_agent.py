@@ -3,15 +3,11 @@ from phi.agent import Agent
 from phi.model.groq import Groq
 from phi.tools.yfinance import YFinanceTools
 from phi.tools.duckduckgo import DuckDuckGo
-from openai import OpenAI
-import openai
 import groq
 
 from dotenv import load_dotenv
 load_dotenv()
 
-# Set the OpenAI API key
-openai.api_key = os.getenv("OPENAI_API_KEY")
 # Set the Groq API key
 groq.api_key = os.getenv("GROQ_API_KEY")
 
