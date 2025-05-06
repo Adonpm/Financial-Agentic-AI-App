@@ -15,7 +15,7 @@ groq.api_key = os.getenv("GROQ_API_KEY")
 web_search_agent = Agent(
     name="Web Search Agent",
     role="Search the wen for the information",
-    model=Groq(id="llama3-groq-70b-8192-tool-use-preview"),
+    model=Groq(id="llama-3.3-70b-versatile"),
     tools=[DuckDuckGo()],
     instructions=["Alwayes include sources"],
     show_tool_calls = True,
@@ -25,7 +25,7 @@ web_search_agent = Agent(
 # Creating financial agent (2nd agent)
 finance_agent = Agent(
     name = "Finance AI Agent",
-    model=Groq(id="llama3-groq-70b-8192-tool-use-preview"),
+    model=Groq(id="llama-3.3-70b-versatile"),
     tools=[YFinanceTools(stock_price=True, analyst_recommendations=True, stock_fundamentals=True, company_news=True)],
     instructions=["Use tables to display the data"],
     show_tool_calls=True,
@@ -35,7 +35,7 @@ finance_agent = Agent(
 # Creating multi ai agent (Combining both AI agents)
 multi_ai_agent = Agent(
     team=[web_search_agent,finance_agent],
-    model=Groq(id="llama3-groq-70b-8192-tool-use-preview"),
+    model=Groq(id="llama-3.3-70b-versatile"),
     instructions=["Alwayes include sources","Use tables to display the data"],
     show_tool_calls=True,
     markdown=True
