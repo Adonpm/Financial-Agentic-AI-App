@@ -34,8 +34,18 @@ finance_agent = Agent(
     markdown=True
 )
 
-#Instead of multi ai agent we did in financial_agent.py, we will built this in playground
-app=Playground(agents=[finance_agent,web_search_agent]).get_app()
+# Creating multi ai agent (Combining both AI agents)
+multi_ai_agent = Agent(
+    name = "Multi AI Agent",
+    team=[web_search_agent,finance_agent],
+    model=Groq(id="llama-3.3-70b-versatile"),
+    instructions=["Alwayes include sources","Use tables to display the data"],
+    show_tool_calls=True,
+    markdown=True
+)
+
+#Building in playground
+app=Playground(agents=[multi_ai_agent,finance_agent,web_search_agent]).get_app()
 
 if __name__ == "__main__":
     serve_playground_app("playground:app",reload=True)
