@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 #Load env variables from .env file
 load_dotenv()
 
-phi.api = os.getenv("PHI_AGNO_API_KEY")
+phi.api = os.getenv("PHI_API_KEY")
 
 # Creating websearch agent (1st agent)
 web_search_agent = Agent(
