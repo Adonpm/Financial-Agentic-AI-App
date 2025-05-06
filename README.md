@@ -20,6 +20,7 @@ This project demonstrates the use of AI agents for web searching and financial d
    ```bash
    pip install -r requirements.txt
 4. Create a .env file in the root directory and add your API keys:
+   ```bash
    PHI_API_KEY=your_phi_api_key
    GROQ_API_KEY=your_groq_api_key
 
