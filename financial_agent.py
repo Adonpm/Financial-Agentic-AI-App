@@ -14,7 +14,7 @@ groq.api_key = os.getenv("GROQ_API_KEY")
 # Creating websearch agent (1st agent)
 web_search_agent = Agent(
     name="Web Search Agent",
-    role="Search the wen for the information",
+    role="Search the web for the information",
     model=Groq(id="llama-3.3-70b-versatile"),
     tools=[DuckDuckGo()],
     instructions=["Alwayes include sources"],
