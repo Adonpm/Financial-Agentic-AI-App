@@ -14,8 +14,8 @@ This project demonstrates the use of AI agents for web searching and financial d
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd <repository-directory>
+   git clone https://github.com/Adonpm/Financial-Agentic-AI-App.git
+   cd Financial-Agentic-AI-App
 2. Install the required Python packages:
    ```bash
    pip install -r requirements.txt
