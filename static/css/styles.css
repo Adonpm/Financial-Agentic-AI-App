@@ -1,0 +1,105 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+textarea {
+  resize: vertical;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  min-height: 120px;
+}
+
+button {
+  padding: 12px;
+  font-size: 16px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #357ab7;
+}
+
+.response {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #eef6ff;
+  border-left: 4px solid #4a90e2;
+  border-radius: 6px;
+  white-space: pre-wrap;
+}
+
+.ai-response {
+  font-size: 16px;
+  color: #333;
+}
+
+.ai-response h1,
+.ai-response h2,
+.ai-response h3 {
+  color: #4a90e2;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+}
+
+.ai-response p {
+  margin-bottom: 1em;
+  line-height: 1.6;
+}
+
+.ai-response ul,
+.ai-response ol {
+  padding-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+.ai-response li {
+  margin-bottom: 0.5em;
+}
+
+.ai-response strong,
+.ai-response b {
+  font-weight: 700;
+  color: #357ab7;
+}
+
+.ai-response blockquote {
+  border-left: 4px solid #4a90e2;
+  margin: 1em 0;
+  padding-left: 1em;
+  color: #555;
+  font-style: italic;
+  background-color: #f0f8ff;
+  border-radius: 4px;
+}
