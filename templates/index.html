@@ -1,49 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financial AI Agent</title>
-    <link rel="stylesheet" href="/static/css/styles.css" />
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Financial AI Agent</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Financial AI Agent</h1>
-        <p class="subtitle">Powered by advanced AI to deliver comprehensive financial insights and market analysis</p>
-        <form id="query-form">
-            <textarea id = "message" name="message" rows="4" placeholder="Ask something like 'Summarize analyst recommendation and latest news for NVDA'" required></textarea>
-            <button type="submit">Submit</button>
-        </form>
-        <div id="response" class="response"></div>
+  <header>
+    <div class="navbar">
+      <h1>💼 Financial AI Agent</h1>
+      <p>AI-powered assistant for stock analysis, news summaries, and more</p>
     </div>
-    <script>
-        document.getElementById("query-form").addEventListener("submit", async function (e) {
-        e.preventDefault();
-        const message = document.getElementById("message").value;
-        const responseDiv = document.getElementById("response");
-        responseDiv.innerHTML = "<p>Loading...</p>";
-        
-        try {
-            const res = await fetch("/query", {
-                method: "POST",
-                headers: {
-                "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ query: message })
-            });
+  </header>
 
-            const data = await res.json();
+  <main class="main-container">
+    <aside class="sidebar">
+      <h2>🔍 Features</h2>
+      <ul>
+        <li>🌐 Web Search Agent (DuckDuckGo)</li>
+        <li>📊 Financial Insights from YFinance</li>
+        <li>🤖 Multi-Agent System Coordination</li>
+        <li>🧠 AI-Powered Market Analysis</li>
+      </ul>
+    </aside>
 
-            const markdown = data.response;
-            const html = marked.parse(markdown);
+    <section class="content">
+      <h2>Ask your financial question</h2>
+      <form id="query-form">
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          placeholder="Ex: Summarize analyst recommendations and news for NVDA"
+          required
+        ></textarea>
+        <button type="submit">Submit Query</button>
+      </form>
 
-            responseDiv.innerHTML = `<div class="ai-response">${html}</div>`;
-        } catch (error) {
-            console.error("Error fetching AI response:", error);
-            responseDiv.innerHTML = `<p style="color: red;">Error: ${"Failed to fetch AI response. Please try again."}</p>`;
-        }
+      <div id="response" class="response hidden">
+        <div class="loading-spinner" id="spinner"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Financial AI Agent • Built with ❤️ by Adon</p>
+  </footer>
+
+  <script>
+    document.getElementById("query-form").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const message = document.getElementById("message").value;
+      const responseDiv = document.getElementById("response");
+      const spinner = document.getElementById("spinner");
+
+      responseDiv.classList.remove("hidden");
+      spinner.style.display = "block";
+      responseDiv.innerHTML = '<div id="spinner" class="loading-spinner"></div>';
+
+      try {
+        const res = await fetch("/query", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ query: message }),
         });
-    </script>
+
+        const data = await res.json();
+        const markdown = data.response;
+        const html = marked.parse(markdown);
+
+        responseDiv.innerHTML = `<div class="ai-response">${html}</div>`;
+      } catch (error) {
+        console.error("Error:", error);
+        responseDiv.innerHTML = `<p class="error">❌ Failed to fetch AI response. Try again later.</p>`;
+      }
+    });
+  </script>
 </body>
 </html>
