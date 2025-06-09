@@ -3,7 +3,7 @@ This project demonstrates the use of AI agents for web searching and financial d
 
 ## Project Structure
 - **playground.py**: This script sets up a web application using the `Playground` class, which hosts two individual AI agents (web search and financial analysis) and a combined multi-agent system.
-- **financial_agent.py**: This script demonstrates the creation of a multi-agent system that combines the capabilities of both the web search and financial analysis agents.
+- **app.py**: This script demonstrates the creation of a multi-agent system that combines the capabilities of both the web search and financial analysis agents.
 
 ## Prerequisites
 - Python 3.x
@@ -25,19 +25,19 @@ This project demonstrates the use of AI agents for web searching and financial d
    GROQ_API_KEY=your_groq_api_key
 
 ## Usage
+### Running the Web Application
+- Navigate to the project directory.
+- Run the app.py script:
+  ```bash
+  python app.py
+- Then open your browser at http://localhost:7860/
+
 ### Running the Playground Application
 - Navigate to the project directory.
 - Run the playground.py script to start the web application:
   ```bash
   python playground.py
 - This will launch a web server hosting the playground application with the web search agent, financial analysis agent, and the combined multi-agent system.
-
-### Running the Financial Agent Script
-- Navigate to the project directory.
-- Run the financial_agent.py script to execute the multi-agent system:
-  ```bash
-  python financial_agent.py
-- This will execute the multi-agent system, combining the web search and financial analysis capabilities, and print the response to a sample query.
 
 ## Features
 - Web Search Agent: Searches the web for information using the DuckDuckGo tool.
