@@ -16,34 +16,35 @@
   </header>
 
   <main class="main-container">
-    <aside class="sidebar">
-      <h2>🔍 Features</h2>
-      <ul>
+    <section class="features-box">
+        <h2>🔍 Features</h2>
+        <ul>
         <li>🌐 Web Search Agent (DuckDuckGo)</li>
         <li>📊 Financial Insights from YFinance</li>
         <li>🤖 Multi-Agent System Coordination</li>
         <li>🧠 AI-Powered Market Analysis</li>
-      </ul>
-    </aside>
+        </ul>
+    </section>
 
     <section class="content">
-      <h2>Ask your financial question</h2>
-      <form id="query-form">
+        <h2>Ask your financial question</h2>
+        <form id="query-form">
         <textarea
-          id="message"
-          name="message"
-          rows="4"
-          placeholder="Ex: Summarize analyst recommendations and news for NVDA"
-          required
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="Ex: Summarize analyst recommendations and news for NVDA"
+            required
         ></textarea>
         <button type="submit">Submit Query</button>
-      </form>
+        </form>
 
-      <div id="response" class="response hidden">
+        <div id="response" class="response hidden">
         <div class="loading-spinner" id="spinner"></div>
-      </div>
+        </div>
     </section>
   </main>
+
 
   <footer>
     <p>&copy; 2025 Financial AI Agent • Built with ❤️ by Adon</p>
